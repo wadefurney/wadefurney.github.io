@@ -1,5 +1,10 @@
 body {
-	font-size: 30px;
+	font-size: 25px;
+}
+
+.bigBtn {
+	width: 90px;
+	height: 40px;
 }
 
 .playerStat {

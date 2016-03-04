@@ -44,7 +44,7 @@
 			<td ng-show="player.playing == true && main.showButtons == true">			  
 			  <div  class="toggle-btn-grp cssonly">
 				<div ng-repeat="option in main.handOptions">
-				  <input type="radio" name="group4"  ng-model="player.handOption" ng-value="option.value"/>
+				  <input type="radio" ng-model="player.handOption" ng-value="option.value"/>
 				  <label onclick="" class="toggle-btn">{{option.name}}</label>
 				</div>			  
 			  </div>			  
@@ -58,7 +58,11 @@
 		 </tr>
 	 </tbody>
 	 </table>
-	 <button class="btn-primary-spacing" ng-click="main.nextHand()">Count</button>	
+	 <br />
+	 <br />
+	 <br />
+	
+	 <button class="bigBtn" ng-click="main.nextHand()">Count</button>	
 </div>
 
 </body>
