@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>AngularJS Tutorial</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="main.ctrl.js"></script>
+</head>
+<body ng-app="app" ng-controller="MainController as main">
+
+<div class="container">
+    <h1>{{main.title}}</h1>
+	<div >
+        <span>Show buttons</span><input type="checkbox" ng-model="main.showButtons"/>        
+    </div>
+	<table class="table table-striped">		
+	  <tbody>
+		<tr>
+		   <th>Seat</th>
+		   <th ng-show="main.showButtons == true">Buttons</th>
+		   <th>CALL</th>
+		   <th>RAISE</th>       
+		   <th>3 Bet</th>       
+		   <th>4 Bet</th>       
+		</tr>
+		<tr ng-repeat="player in main.players">
+			<td>{{$index+1}}</td>
+			<td ng-show="main.showButtons == true">
+				<button class="btn-primary-spacing" ng-click="main.call($index)">CALL</button>
+				<button class="btn-primary-spacing" ng-click="main.raise($index)">RAISE</button>
+				<button class="btn-primary-spacing" ng-click="main.bet3($index)">3 BET</button>
+				<button class="btn-primary-spacing" ng-click="main.bet4($index)">4 BET</button>	
+				
+				Move To:<select ng-model="blah" ng-options="item as item for item in main.seats" ng-change="main.moveSeat($index, blah); blah = '';">
+				        </select>							
+				
+			</td>
+			<td>{{player.call}}</td>
+			<td>{{player.raise}}</td>
+			<td>{{player.bet3}}</td>
+			<td>{{player.bet4}}</td>
+		 </tr>
+	 </tbody>
+	 </table>
+
+</div>
+
+</body>
+</html>
+
+
+
