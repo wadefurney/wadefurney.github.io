@@ -3,8 +3,7 @@ var handOptions = [
 	{ name: 'Raise', value : 1, show: true },
 	{ name: 'Call', value : 2, show: true },
 	{ name: '3 Bet', value : 3, show: true },
-	{ name: '4 Bet', value : 4, show: true },	
-	{ name: 'Fold', value : 5, show: false }];
+	{ name: '4 Bet', value : 4, show: true }];
 
 function Player() {	
 	this.bet4Perc = 0; 
@@ -100,7 +99,7 @@ angular.module('app').controller("MainController", function(){
 				player.bet4Perc = (player.bet4/player.games) * 100; 
 			}
 			
-		
+			player.handOption = 5; 
 		
 		}
 	}

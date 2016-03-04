@@ -2,58 +2,59 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>POKER!</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <title>Poker Tracker</title>    
+	<link rel="stylesheet" href="poker.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
     <script src="app.js"></script>
     <script src="main.ctrl.js"></script>
 </head>
 <body ng-app="app" ng-controller="MainController as main">
 
-<div class="container">
-    <h1>{{main.title}}</h1>
-	<div >
-		<div>
-			Show buttons <input type="checkbox" ng-model="main.showButtons"/>        
+<div class="container">  
+	<div  class="toggle-btn-grp cssonly">		
+	    <div>
+		<input type="checkbox" ng-model="main.showMove" class="hidden" name="mcb">
+		<label onclick="" class="toggle-btn">Move</label>
 		</div>
-		<div>
-			Show move <input type="checkbox" ng-model="main.showMove"/>        
-		</div>
-    </div>
+	</div>
+		
 	<table class="table table-striped">		
 	  <tbody>
 		<tr>
 		   <th ng-show="main.showMove == true">Move To</th>
 		   <th>Seat</th>
-		   <th ng-show="main.showButtons == true">Buttons</th>
-		   <th>Raised</th>
-		   <th>Played</th>       
-		   <th>3 Bet</th>       
-		   <th>4 Bet</th>       
-		   <th>Games</th>       		   
+		   <th></th>
+		   <th>R</th>
+		   <th>P</th>       
+		   <th>3</th>       
+		   <th>4</th>       
+		   <th>G</th>       		   
 		</tr>
-		<tr ng-repeat="player in main.players">
+		<tr class="playerSeat" ng-repeat="player in main.players">
 			<td ng-show="main.showMove == true && player.playing == true">
 				<select ng-model="blah" ng-options="item as item for item in main.seats" ng-change="main.moveSeat($index, blah); blah = '';"></select>	
 			</td>
 									
 			<td>			
 				<button class="btn-primary-spacing"  ng-show="player.playing == true" ng-click="main.removePlayer($index)">-</button>	
-				<span>{{$index+1}}</span>
 				<button class="btn-primary-spacing"  ng-show="player.playing == false" ng-click="main.addPlayer($index)">+</button>	
+				<span>{{$index+1}}</span>
 			</td>
 			
 			<td ng-show="player.playing == true && main.showButtons == true">			  
-			  <label  class="radio-inline" ng-repeat="option in main.handOptions">				
-				<input type="radio" ng-model="player.handOption" ng-value="option.value">{{option.name}}</input>
-			  </label>					  			  
+			  <div  class="toggle-btn-grp cssonly">
+				<div ng-repeat="option in main.handOptions">
+				  <input type="radio" name="group4"  ng-model="player.handOption" ng-value="option.value"/>
+				  <label onclick="" class="toggle-btn">{{option.name}}</label>
+				</div>			  
+			  </div>			  
 			</td>			
 			
-			<td ng-show="player.playing == true">{{player.raisePerc.toFixed()}}%</td>
-			<td ng-show="player.playing == true">{{player.playPerc.toFixed()}}%</td>
-			<td ng-show="player.playing == true">{{player.bet3Perc.toFixed()}}%</td>
-			<td ng-show="player.playing == true">{{player.bet4Perc.toFixed()}}%</td>
-			<td ng-show="player.playing == true">{{player.games}}</td>
+			<td class="playerStat" ng-show="player.playing == true">{{player.raisePerc.toFixed()}}%</td>
+			<td class="playerStat" ng-show="player.playing == true">{{player.playPerc.toFixed()}}%</td>
+			<td class="playerStat" ng-show="player.playing == true">{{player.bet3Perc.toFixed()}}%</td>
+			<td class="playerStat" ng-show="player.playing == true">{{player.bet4Perc.toFixed()}}%</td>
+			<td class="playerStat" ng-show="player.playing == true">{{player.games}}</td>
 		 </tr>
 	 </tbody>
 	 </table>
