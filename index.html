@@ -12,26 +12,33 @@
 <body ng-app="app" ng-controller="MainController as main">
 
 <div class="container">  
-	<div  class="toggle-btn-grp cssonly">		
-	    <div>
-		<input type="checkbox" ng-model="main.showMove" class="hidden" name="mcb">
-		<label onclick="" class="toggle-btn">Move</label>
-		</div>
-	</div>
+	<label>
+		<input type="checkbox" ng-model="main.showMove" name="mcb">Move
+		</label>
+	
 		
+		
+	
 	<table class="table table-striped">		
 	  <tbody>
 		<tr>
 		   <th ng-show="main.showMove == true">Move To</th>
-		   <th>Seat</th>
-		   <th></th>
-		   <th>R</th>
-		   <th>P</th>       
-		   <th>3</th>       
-		   <th>4</th>       
-		   <th>G</th>       		   
-		</tr>
-		<tr class="playerSeat" ng-repeat="player in main.players">
+		   <th>Seat</th>	   
+		
+			<th>
+				<div class="detailSpan">R
+				</div>
+				<div class="detailSpan">P
+				</div>
+				<div class="detailSpan">3
+				</div>
+				<div class="detailSpan">4
+				</div>
+				<div class="detailSpan">G
+				</span>
+			</th>
+		
+		<tr class="playerSeat" ng-repeat-start="player in main.players">
 			<td ng-show="main.showMove == true && player.playing == true">
 				<select ng-model="blah" ng-options="item as item for item in main.seats" ng-change="main.moveSeat($index, blah); blah = '';"></select>	
 			</td>
@@ -42,21 +49,32 @@
 				<span>{{$index+1}}</span>
 			</td>
 			
-			<td ng-show="player.playing == true && main.showButtons == true">			  
-			  <div  class="toggle-btn-grp cssonly">
-				<div ng-repeat="option in main.handOptions">
-				  <input type="radio" ng-model="player.handOption" ng-value="option.value"/>
-				  <label onclick="" class="toggle-btn">{{option.name}}</label>
-				</div>			  
-			  </div>			  
-			</td>			
-			
-			<td class="playerStat" ng-show="player.playing == true">{{player.raisePerc.toFixed()}}%</td>
-			<td class="playerStat" ng-show="player.playing == true">{{player.playPerc.toFixed()}}%</td>
-			<td class="playerStat" ng-show="player.playing == true">{{player.bet3Perc.toFixed()}}%</td>
-			<td class="playerStat" ng-show="player.playing == true">{{player.bet4Perc.toFixed()}}%</td>
-			<td class="playerStat" ng-show="player.playing == true">{{player.games}}</td>
+<td>
+			<div class="detailSpan">{{player.raisePerc.toFixed()}}%
+			</div>
+			<div class="detailSpan">{{player.playPerc.toFixed()}}%
+			</div>
+			<div class="detailSpan">{{player.bet3Perc.toFixed()}}%
+			</div>
+			<div class="detailSpan">{{player.bet4Perc.toFixed()}}%
+			</div>
+			<div class="detailSpan">{{player.games}}
+			</div>
+</td>			
+
 		 </tr>
+		 <tr ng-repeat-end  class="btnHolder">
+			<td></td>
+			<td ng-show="player.playing == true && main.showButtons == true">
+				  <div class="test">
+				  <label ng-repeat="option in main.handOptions">
+				    <input class="rb" type="radio" ng-model="player.handOption" ng-value="option.value"/>{{option.name}}
+				  </label>
+				  </div>
+				</div>			  			  
+			</td>
+		 </tr>
+		 
 	 </tbody>
 	 </table>
 	 <br />

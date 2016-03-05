@@ -1,100 +1,23 @@
 body {
-	font-size: 25px;
+	font-size: 20px;
 }
-
+.detailSpan {
+	width: 55px; 
+	float: left;
+	text-align: center; 	
+}
+.rb { 
+}
+.btnHolder {
+	width : 70px;
+}
 .bigBtn {
 	width: 90px;
 	height: 40px;
 }
-
 .playerStat {
 	padding: 10px 10px 0 10px; 
+	max-width : 70px;
 }
-
 .playerSeat {
-	height: 60px; 
-}
-/* check boxes below */
-
-#ck-button {
-    margin:4px;
-    background-color:#EFEFEF;
-    border-radius:4px;
-    border:1px solid #D0D0D0;
-    overflow:auto;    
-}
-
-#ck-button label {
-    float:left;    
-}
-
-#ck-button label span {
-    text-align:center;
-    padding:3px 0px;
-    display:block;
-}
-
-#ck-button label input {
-    position:absolute;
-    top:-20px;
-}
-
-#ck-button input:checked + span {
-    background-color:#911;
-    color:#fff;
-}
-/* Radio buttons below */
-label { 
-    padding:0.4em 2em 0.4em 0; 
-}
-.toggle-btn-grp { 
-    margin:3px 0; 
-}
-.toggle-btn { 
-    text-align:centre; 
-    margin:5px 2px;
-    padding:0.4em 3em; 
-    color:#000; 
-    background-color:#FFF; 
-    border-radius:10px; 
-    display:inline-block; 
-    border:solid 1px #CCC; 
-    cursor:pointer;
-}
-
-
-/* CSS only version */
-.toggle-btn-grp.cssonly * {
-    width:130px;
-    height:30px;
-    line-height:30px;
-}
-.toggle-btn-grp.cssonly div {
-    display:inline-block;
-    position:relative;
-    margin:5px 2px;
-}
-
-.toggle-btn-grp.cssonly div label {
-    position:absolute;
-    z-index:0;
-    padding:0;
-    text-align:center;
-}
-
-.toggle-btn-grp.cssonly div input {
-    position:absolute;
-    z-index:1;
-    cursor:pointer;
-    opacity:0;
-}
-
-.toggle-btn-grp.cssonly div:hover label {
-    border:solid 1px #a0d5dc !important; 
-    background:#f1fdfe;
-}
-
-.toggle-btn-grp.cssonly div input:checked + label {
-    background:lightgreen;
-    border:solid 1px green !important; 
 }
